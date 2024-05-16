@@ -1,0 +1,71 @@
+---
+title: "Front-end Challenge"
+publishedAt: "2024-04-09"
+year: "2024"
+private: "true"
+tag: "interview"
+summary: "Some anonymous company asked me to complete this as part of an interview process."
+video: "/todolist.mp4"
+---
+
+## The story
+
+This project was a quick “To-do App” challenge that I completed as part of an interview process. I was provided with a starter repo, a few design screenshots, and a list of user stories to complete.
+
+User stories:
+
+1. As a developer, I want to use git.
+2. As a user, I can create a new Todo.
+3. As a user, I can view a list of Todos.
+4. As a user, I can mark a Todo as complete or incomplete.
+5. As a user, I can delete a Todo.
+6. As a user, I see an error message when something fails.
+
+## My contributions
+
+I was the sole engineer on this project, building out the required features using [Next.js](https://nextjs.org/), [Typescript](https://www.typescriptlang.org/), [SWR](https://swr.vercel.app/), and [Tailwind](https://tailwindcss.com/).
+
+In addition to recreating the designs provided, I added the [react-confetti](https://www.npmjs.com/package/react-confetti) package and used it to create a fun user interaction when all of the tasks are complete. 🎉
+
+## The result
+
+The submitted project was accepted, and I was able to move on to the next round of interviews.
+
+You can see the full project on [github](https://github.com/mtrickett/frontend-challenge). Here is a snippet from the `TodosList.tsx` component's returned jsx:
+
+```
+<ul className="m-0 flex flex-col divide-y divide-slate-200 border-t border-slate-200">
+  {filteredList.map((todo: Todo) => {
+    return (
+      <li key={todo.id} className="py-2.5">
+        <label className="text-md group relative -mx-4 block rounded-xl border border-white p-4 font-medium hover:cursor-pointer hover:border-stone-200 hover:bg-stone-50">
+          <input
+            type="checkbox"
+            checked={todo.completed}
+            className="appearance-none"
+            onChange={() => handleChange(todo)}
+          />
+          <HiCheck
+            className={`mr-3 inline-block h-9 w-9 rounded-full border-2 border-stone-300 p-1.5 text-center text-white ${
+              todo.completed
+                ? "border-none bg-green-600"
+                : "group-hover:border-stone-400"
+            }`}
+          />
+          {todo.title}
+          <button
+            onClick={() => handleDelete(todo)}
+            className="absolute right-2 top-2 p-3 text-2xl text-stone-400 hover:text-red-600 group-hover:inline-block md:hidden"
+          >
+            <HiOutlineTrash />
+          </button>
+        </label>
+      </li>
+    );
+  })}
+</ul>
+```
+
+## What I learned
+
+This project was the first time I worked with the SWR library, which I found very helpful in simplifying data fetching. However, I struggled a bit with finding the best patterns for code organization and error handling with SWR, and if I had more time I would revisit this implementation.

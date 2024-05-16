@@ -1,0 +1,37 @@
+---
+title: "Upsell Modal"
+publishedAt: "2024-04-09"
+year: "2021"
+private: "true"
+tag: "feature"
+summary: "Handling a series of variable upsells based on the users cart."
+image: "/upsell-mock.png"
+---
+
+## The story
+
+At [Lovepop](https://www.lovepop.com/), our site traffic leading up to Mother’s Day was historically significantly higher than other times of the year, which meant a unique opportunity for faster learning and iteration. This year the business was focused on bundling, so we decided to test an upsell/cross-sell feature.
+
+Requirements:
+
+- Merchandisers can configure a set of upsells for a single original product in [Contentful](https://www.contentful.com/)
+- Each original product will contain up to 3 upsell products
+- When an original product that has upsell products is added to cart, the upsell modal is displayed
+  - This can be added to cart from any page on the site
+  - On initial add to cart click, the original product is still added to cart
+- If the user chooses the “bundle and save” CTA, the upsell product is added to cart, and the original product is removed from cart
+- If the user chooses any other option, the original product is added to the cart as normal
+
+![](/upsell-user-flow.png "Upsell user flow")
+
+## My contributions
+
+I played a large role in planning the overall architecture of this feature by creating & maintaining documentation for the team.
+
+The documentation served as a source of truth for multiple elements of the feature. This information included the user flow, the [Contentful](https://www.contentful.com/) entry models, tracking & analytics, and the QA testing plan. I also broke down the designs into components, and matched each component with its individual feature requirements.
+
+![](/upsell-components.png "Upsell components")
+
+## What I learned
+
+I found that when you’re trying to move quickly and iterate in a high-pressure time, communication becomes the most important tool for success. Having one place for the team to collaborate, give feedback, and reference was a huge help.

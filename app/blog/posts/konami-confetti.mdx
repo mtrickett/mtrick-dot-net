@@ -1,0 +1,249 @@
+---
+title: "Konami Confetti"
+publishedAt: "2024-04-09"
+year: "2019"
+private: "true"
+tag: "hackathon"
+summary: "A fun tribute to Kazuhisa Hashimoto and the founders of Lovepop."
+video: "/konami-confetti.mp4"
+---
+
+## The story
+
+This project was done as part of a hackathon at [Lovepop](https://www.lovepop.com/) that took place over just one work day. I was working in a team with one other person, and we decided to do a fun front-end-focused hack.
+
+## My contributions
+
+We worked together as a team to build the confetti component. This component was triggered by entering the [konami code](https://en.wikipedia.org/wiki/Konami_Code) on the keyboard.
+
+One piece I contributed was animating the founders that pop out when you trigger the animation. I took inspiration from the “Lovepop Mission Manual”, which included a bunch of paper-cut-style illustrations of the founders. I used [photoshop](https://www.adobe.com/products/photoshop.html) to make a gif from one image in the manual, making them appear to pop out and say hello.
+
+![](/johnwombi.gif "Founders waving hello")
+
+## The result
+
+This hackathon project was super fun to work on and well received by the team. Eventually, after the passing of Kazuhisa Hashimoto (the creator of the konami code), we thought it was the right time to immortalize in production.
+
+Here’s a simplified version of how we triggered the animation. To see the entire component, see down [here](#confetti-component).
+
+```
+const KonamiConfetti = () => {
+  const [showConfetti, setShowConfetti] = useState(false);
+ 
+  const konamiCode = ['up', 'up', 'down', 'down', 'left', 'right', 'left', 'right', 'b', 'a'];
+  const allowedKeys = {
+    37: 'left',
+    38: 'up',
+    39: 'right',
+    40: 'down',
+    65: 'a',
+    66: 'b'
+  };
+
+// a variable to remember the 'position' the user has reached so far.
+  let konamiCodePosition = 0;
+ 
+  // add keydown event listener
+  document.addEventListener('keydown', (keyEvent) => {
+    // get the value of the key code from the key map
+    const key = allowedKeys[keyEvent.keyCode];
+    // get the value of the required key from the konami code
+    const requiredKey = konamiCode[konamiCodePosition];
+ 
+    // compare the key with the required key
+    if (key === requiredKey) {
+ 
+      // move to the next key in the konami code sequence
+      konamiCodePosition++;
+ 
+      // if the last key is reached, activate cheats
+      if (konamiCodePosition === konamiCode.length) {
+        console.log('+1 Life, +1000 Confetti');
+        setShowConfetti(true);
+        konamiCodePosition = 0;
+       }
+    } else {
+      konamiCodePosition = 0;
+    }
+  });
+
+  return (
+    <>
+      {showConfetti &&
+        // confetti goes here
+      }
+    </>
+  );
+};
+```
+
+## What I learned
+
+When I last built a feature with confetti, I took a much more tedious approach - writing out the animation path for each piece of confetti. This gave greater control over the final result, and has the benefit of not loading (and maintaining) another package, but ultimately is just not scalable.
+
+We were able to create this entire feature in just one day with the help of [react-confetti](https://www.npmjs.com/package/react-confetti), and it has become a package I continue to revisit in other projects. I also learned a lot from my teammate, who wrote all of the custom shapes for the individual confetti pieces with nothing but [the power of math](#confetti-component).
+
+## Bonus content
+
+Here’s another hack using the same set of design assets and the [react-spring](https://www.react-spring.dev/) library, to create an interactive parallax scene.
+
+<div className="mt-6 mb-8 full-width-hero">
+  <video width="auto" height="auto" loop autoPlay muted>
+    <source src="/parallax-about-us.mp4" type="video/mp4" />
+  </video>
+</div>
+
+## Confetti component
+
+```
+import React, { Fragment, useState } from 'react';
+import Confetti from 'react-confetti/dist/react-confetti';
+import { urlForAsset } from '../../../providers/ShopifyProvider';
+import { heap } from '../../../analytics';
+ 
+const KonamiConfetti = () => {
+  const [showConfetti, setShowConfetti] = useState(false);
+ 
+  const konamiCode = ['up', 'up', 'down', 'down', 'left', 'right', 'left', 'right', 'b', 'a'];
+  const allowedKeys = {
+    37: 'left',
+    38: 'up',
+    39: 'right',
+    40: 'down',
+    65: 'a',
+    66: 'b'
+  };
+ 
+  const width = window.innerWidth;
+  const height = window.innerHeight;
+  const tweenDuration = 50000;
+  const baseLenMini = 2;
+  const baseLen = 4;
+  const baseLenMaxi = 8;
+ 
+  const confettiColors = ['#dfa5ad', '#fbbb73', '#e9eeaf', '#90c7ed', '#b198c9'];
+  const waveOptions = ['top', 'bottom', 'left', 'right'];
+  const wavePosition = waveOptions[Math.floor(Math.random() * waveOptions.length)];
+  const img = urlForAsset('johnwombi.gif');
+ 
+  // a variable to remember the 'position' the user has reached so far.
+  let konamiCodePosition = 0;
+ 
+  // add keydown event listener
+  document.addEventListener('keydown', (keyEvent) => {
+    // get the value of the key code from the key map
+    const key = allowedKeys[keyEvent.keyCode];
+    // get the value of the required key from the konami code
+    const requiredKey = konamiCode[konamiCodePosition];
+ 
+    // compare the key with the required key
+    if (key === requiredKey) {
+ 
+      // move to the next key in the konami code sequence
+      konamiCodePosition++;
+ 
+      // if the last key is reached, activate cheats
+      if (konamiCodePosition === konamiCode.length) {
+        console.log('°。°。°。°。°。°。°。゜。°。°。°。\n。°。°。°。°。°。°。°。°。°。°。°\n✧･ﾟ: *✧･ﾟ:* 　　 *:･ﾟ✧*:･ﾟ✧\n+1 Life, +1000 Confetti\nRIP Kazuhisa Hashimoto 1958.11.15 - 2020.2.25\n✧･ﾟ: *✧･ﾟ:* 　　 *:･ﾟ✧*:･ﾟ✧\n°。°。°。°。°。°。°。゜。°。°。°。\n。°。°。°。°。°。°。°。°。°。°。°'); // eslint-disable-line no-console
+        heap.trackEvent('Konami code invocation');
+        setShowConfetti(true);
+        konamiCodePosition = 0;
+       }
+    } else {
+      konamiCodePosition = 0;
+    }
+  });
+ 
+  const drawLogo = (ctx, size) => {
+    ctx.beginPath();
+    ctx.moveTo(-size, 0);
+    ctx.lineTo(-size, 0);
+    ctx.lineTo(-size, -size * 2);
+    ctx.lineTo(size, -size * 2);
+    ctx.lineTo(size * 1.6, -size * 0.7);
+    ctx.lineTo(size * 0.3, -size * 0.7);
+    ctx.lineTo(size * 0.3, size * 0.5);
+    ctx.closePath();
+    ctx.moveTo(-0.7125 * size, -0.9 * size);
+    ctx.lineTo(0.0875 * size, -0.9 * size);
+    ctx.arc(0.0875 * size, -1.3 * size, size * 0.4, Math.PI * 90 / 180, Math.PI * 270 / 180, true);
+    ctx.lineTo(0.0875 * size, -1.7 * size);
+    ctx.lineTo(-0.7125 * size, -1.7 * size);
+    ctx.lineTo(-0.7125 * size, -0.9 * size);
+    ctx.arc(-0.3125 * size, -0.9 * size, size * 0.4, Math.PI, 0, true);
+    ctx.closePath();
+    ctx.fill();
+  };
+ 
+  const drawHeart = (ctx, size) => {
+    ctx.beginPath();
+    ctx.moveTo(-size, 0);
+    ctx.arc(0, 0, size, 0, Math.PI, false);
+    ctx.lineTo(size, 0);
+    ctx.arc(size, -size, size, Math.PI * 90 / 180, Math.PI * 270 / 180, true);
+    ctx.lineTo(size, -size * 2);
+    ctx.lineTo(-size, -size * 2);
+    ctx.lineTo(-size, 0);
+    ctx.fill();
+    ctx.closePath();
+  };
+ 
+  const drawCircle = (ctx, size) => {
+    ctx.beginPath();
+    ctx.arc(0, 0, 2 * size, 0, 2 * Math.PI);
+    ctx.fill();
+    ctx.closePath();
+  };
+ 
+  return (
+    <Fragment>
+      {showConfetti &&
+        <div className="KonamiConfetti">
+          <Confetti
+            height={height}
+            width={width}
+            numberOfPieces={500}
+            tweenDuration={tweenDuration}
+            colors={confettiColors}
+            recycle={false}
+            onConfettiComplete={() => { setShowConfetti(false); }}
+            drawShape={(ctx) => drawLogo(ctx, baseLenMaxi)}/>
+          <Confetti
+            height={height}
+            width={width}
+            numberOfPieces={250}
+            tweenDuration={tweenDuration}
+            colors={confettiColors}
+            recycle={false}
+            onConfettiComplete={() => { setShowConfetti(false); }}
+            drawShape={(ctx) => drawHeart(ctx, baseLen)}/>
+          <Confetti
+            height={height}
+            width={width}
+            numberOfPieces={200}
+            tweenDuration={tweenDuration}
+            colors={confettiColors}
+            recycle={false}
+            onConfettiComplete={() => { setShowConfetti(false); }}
+            drawShape={(ctx) => drawCircle(ctx, baseLenMini)}/>
+          <Confetti
+            height={height}
+            width={width}
+            numberOfPieces={300}
+            tweenDuration={tweenDuration}
+            colors={confettiColors}
+            recycle={false}
+            onConfettiComplete={() => { setShowConfetti(false); }}
+            drawShape={(ctx) => drawCircle(ctx, baseLen)}/>
+          <img src={`${img}?${Math.random()}`}
+               height="200"
+               className={`KonamiConfetti__wave KonamiConfetti__wave-${wavePosition}`}
+               alt="John and Wombi wave hello!"/>
+        </div>
+      }
+    </Fragment>
+  );
+};
+ 
+export default KonamiConfetti;
+```
