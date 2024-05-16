@@ -1,0 +1,39 @@
+---
+title: "Standup Chrome Extension"
+publishedAt: "2024-04-09"
+year: "2020"
+tag: "project"
+summary: "A quick solution for running standup remotely all in one screen."
+image: "/funco-standup-screenshot.png"
+---
+
+## The story
+
+After work shifted to fully-remote in 2020, our team needed a better way to facilitate standup while sharing the screen on zoom. We had a few issues to solve:
+
+1. We wanted to keep the task board visible throughout all of standup
+2. We wanted to be able to randomly choose who is up next, based on current attendance, and keep track of whose turn it is
+3. We wanted to be able to set a time limit for each update
+4. And ideally, we would also have some indication of which tickets belong to the current participant
+
+Before building this chrome extension, the facilitator of standup would need to have two tabs shared at once - the task board (on [Shortcut](https://www.shortcut.com/), formerly known as clubhouse.io) and [pickatrandom](http://pickatrandom.com/) to choose who gives the next update. They would also set a timer on their phone each time the person started talking, and would tell them when the timer went off. This system was clunky at best, and made it difficult to switch off who was facilitating if the usual person was unavailable.
+
+## My contributions
+
+I was the sole developer and ux designer for this project. I wanted to build this as a chrome extension so that I could inject my component directly into the existing task board (think something like [honey](https://www.joinhoney.com/)), and we could track everything that’s happening in standup in the same place at the same time.
+
+I designed a drop-down menu that pulled in a checklist of the usual attendees from local settings that you could use to mark who was participating that day, as well as an option for how many minutes each update should last. After choosing settings and clicking “Start”, the dropdown is closed and you can click “Thrill me” (a nod to [pickatrandom](<(http://pickatrandom.com/)>)) to show whose turn it is and auto-start the timer. If the participant’s name matched the name on any tickets, those cards would be highlighted on the board during their turn.
+
+![](/standup-dropdown.png "Dropdown settings")
+
+Note: The styles and theming of these components were inspired by the style guide at Lovepop 💌
+
+## The result
+
+You can view this project on the [Chrome Web Store](https://chromewebstore.google.com/detail/funco-standup/klhcfogehcmnehleabjhohhbcdmaedpk), or check out the code on [github](https://github.com/mtrickett/funco-standup).
+
+This project was super successful, and I’m glad I took the time to build this for my team! We ended up using this for a while, eventually going through multiple iterations and additions from other team members.
+
+## What I learned
+
+This project was my first time working with the [Chrome Extension API](https://developer.chrome.com/docs/extensions/reference/api), and I really enjoyed playing around with the possibilities for manipulating the dom. A couple years later, I revisited this project from another angle, and attempted to build a standup dashboard from scratch using the [Shortcut API](https://developer.shortcut.com/api/rest/v3), which provided a ton more flexibility in terms of visuals and data, but required much more upfront work to get rolling. Overall, I am happy with the ratio of effort to reward in this project, and had a lot of fun building it.
