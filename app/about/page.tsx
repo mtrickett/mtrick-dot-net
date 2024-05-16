@@ -1,7 +1,14 @@
 export default function About() {
   return (
     <section>
-      <p>Hi.</p>
+      <h1 className="mb-8 font-semibold text-2xl tracking-tighter">About me</h1>
+      <p>
+        Here's my{" "}
+        <span className="text-[#0000ff] underline">
+          <a href="https://www.linkedin.com/in/melanietrickett/">linkedin</a>
+        </span>
+        .
+      </p>
     </section>
   );
 }

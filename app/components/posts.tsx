@@ -30,9 +30,9 @@ export function BlogPosts() {
                 </p>
               </span>
               <p className="m-2 pr-2 text-neutral-900 tracking-tight">
-                <b className="group-hover:text-[#0000ff] group-hover:underline">
+                <span className="group-hover:text-[#0000ff] font-semibold">
                   {post.metadata.title}
-                </b>
+                </span>
                 {`: `}
                 {post.metadata.summary}
               </p>
