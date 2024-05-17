@@ -21,11 +21,11 @@ export function BlogPosts() {
             href={`/blog/${post.slug}`}
           >
             <div className="flex md:flex-row flex-col space-x-0 md:space-x-2 bg-neutral-100 md:bg-white md:hover:bg-neutral-100 mb-6 md:mb-0 px-4 md:px-0 py-2 rounded-lg w-full group">
-              <span className="md:text-right md:m-2 py-1.5">
-                <p className="md:block hidden md:mr-3 md:w-[100px] md:text-neutral-600">
+              <span className="md:text-right md:m-2 py-1.5 md:py-0">
+                <p className="md:block hidden md:w-[100px] md:text-neutral-600">
                   {post.metadata.year}
                 </p>
-                <p className="inline bg-neutral-100 mt-2 md:px-3 md:py-1.5 rounded-lg w-fit font-bold text-gray-600 text-xs md:text-gray-900 uppercase">
+                <p className="inline mt-2 rounded-lg w-fit font-bold text-gray-600 text-xs md:text-gray-700 uppercase">
                   {post.metadata.tag}
                 </p>
               </span>
@@ -36,7 +36,7 @@ export function BlogPosts() {
                 {`: `}
                 {post.metadata.summary}
               </p>
-              <div className="md:hidden mt-3 mb-1 w-4 h-4 text-[#0000ff] rotate-45">
+              <div className="inline md:opacity-0 group-hover:opacity-100 mt-4 mb-1 w-4 h-4 text-[#0000ff] md:-translate-x-5 md:translate-y-2 rotate-45">
                 <ArrowIcon />
               </div>
             </div>
