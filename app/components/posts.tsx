@@ -25,7 +25,7 @@ export function BlogPosts() {
                 <p className="md:block hidden md:w-[100px] md:text-neutral-600">
                   {post.metadata.year}
                 </p>
-                <p className="inline mt-2 rounded-lg w-fit font-bold text-neutral-600 text-xs md:text-neutral-600 uppercase">
+                <p className="inline mt-2 rounded-lg w-fit font-bold text-neutral-600 text-xs md:text-neutral-500 uppercase">
                   {post.metadata.tag}
                 </p>
               </span>
