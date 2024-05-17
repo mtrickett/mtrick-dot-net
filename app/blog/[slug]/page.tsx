@@ -93,7 +93,7 @@ export default function Blog({ params }) {
                 : `/og?title=${encodeURIComponent(post.metadata.title)}`
             }
             width={1200}
-            height={400}
+            height={600}
             style={{
               maxWidth: "100%",
               height: "auto",
