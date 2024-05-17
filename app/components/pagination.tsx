@@ -26,7 +26,7 @@ export function Pagination({ currentPage }) {
   return (
     <div className="flex justify-between mb-4">
       <Link
-        className="flex justify-center items-center border-gray-300 dark:border-gray-700 bg-white hover:bg-gray-100 dark:hover:bg-gray-700 dark:bg-gray-800 px-3 border rounded-lg h-8 font-medium text-gray-500 text-sm hover:text-gray-700 dark:hover:text-white dark:text-gray-400 me-3"
+        className="flex justify-center items-center border-neutral-300 bg-white hover:bg-neutral-100 px-3 border rounded-lg h-8 font-medium text-neutral-500 text-sm hover:text-neutral-700 me-3"
         href={`/blog/${previous.slug}`}
       >
         <svg
@@ -47,7 +47,7 @@ export function Pagination({ currentPage }) {
         {`previous`}
       </Link>
       <Link
-        className="flex justify-center items-center border-gray-300 dark:border-gray-700 bg-white hover:bg-gray-100 dark:hover:bg-gray-700 dark:bg-gray-800 px-3 border rounded-lg h-8 font-medium text-gray-500 text-sm hover:text-gray-700 dark:hover:text-white dark:text-gray-400 me-3"
+        className="flex justify-center items-center border-neutral-300 bg-white hover:bg-neutral-100 px-3 border rounded-lg h-8 font-medium text-neutral-500 text-sm hover:text-neutral-700 me-3"
         href={`/blog/${next.slug}`}
       >
         {`next`}{" "}

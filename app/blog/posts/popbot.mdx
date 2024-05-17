@@ -1,10 +1,10 @@
 ---
 title: "PopBot"
 publishedAt: "2024-04-09"
-year: "2020"
+year: "2021"
 tag: "hackathon"
 summary: "Ask this chatbot to help you find the perfect greeting card for any occasion."
-video: "/popbot-main-flow-condensed.mp4"
+video: "/popbot-compiled.mp4"
 ---
 
 ## The story
@@ -15,9 +15,15 @@ This was a hackathon project, completed over the course of a couple days. I was 
 
 I was the sole developer and ux designer for this project. This was built using the [react-chatbot-kit](https://fredrikoseberg.github.io/react-chatbot-kit-docs/) package, and I added some custom styling & logic. Each question asked by the chatbot correlates to a filterable property on a product, and by the end tries to return the most relevant result based on those filters.
 
-I also created a custom heart-eyes robot by combining some svgs from [OpenMoji](https://openmoji.org/) to become the titular “PopBot”.
+<img src="/popbot-intro-convo.png" width="300" alt="PopBot's intro message" />
 
-![](/popbot.svg "PopBot")
+I also added a couple easter eggs, including the ability to ask for a joke. These jokes were sourced from jokes that my coworkers had shared at standup (shoutout funco).
+
+<img src="/popbot-jokes-convo.png" width="300" alt="PopBot's jokes" />
+
+In addition, I also created a custom emoji by combining some svgs from [OpenMoji](https://openmoji.org/), to become the titular heart-eyed robot, “PopBot”:
+
+<img src="/popbot.svg" width="250" alt="PopBot" />
 
 ## The result
 
@@ -25,4 +31,4 @@ My project received positive feedback and was super fun to work on.
 
 ## What I learned
 
-I think the package that I used here was super helpful in building this quickly, which was ideal in a hackathon context. If I were to build this again for production however, I would probably take a more customized approach and build out the logic from scratch.
+I think the package that I used here was super helpful in building this quickly, which was ideal in a hackathon context, but was a little confusing to maintain. If I were to recreate this for production, I would probably either build out the logic from scratch or find a new library that fit the use case better.

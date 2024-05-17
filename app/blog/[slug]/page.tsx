@@ -84,8 +84,7 @@ export default function Blog({ params }) {
           }),
         }}
       />
-      <Pagination currentPage={params} />
-      <div className="mb-8 full-width-hero">
+      <div className="mb-8 pt-3 md:pb-10 full-width-hero">
         {post.metadata.image && (
           <Image
             src={
@@ -94,7 +93,7 @@ export default function Blog({ params }) {
                 : `/og?title=${encodeURIComponent(post.metadata.title)}`
             }
             width={1200}
-            height={400}
+            height={600}
             style={{
               maxWidth: "100%",
               height: "auto",
@@ -117,7 +116,7 @@ export default function Blog({ params }) {
         </p>
       </div>
       <p className="text-neutral-600 text-sm">{Number(post.metadata.year)}</p>
-      <article className="prose">
+      <article className="mb-6 prose">
         <CustomMDX source={post.content} />
       </article>
       <Pagination currentPage={params} />
