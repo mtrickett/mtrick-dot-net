@@ -36,7 +36,7 @@ export function Navbar() {
           </div>
         </nav>
         <a
-          className="flex items-center max-w-24 text-neutral-600 hover:text-[#0000ff] hover:underline"
+          className="flex items-center max-w-24 text-[#0000ff] md:text-neutral-600 hover:text-[#0000ff] underline hover:underline md:no-underline"
           rel="noopener noreferrer"
           target="_blank"
           href="https://github.com/mtrickett/mtrick-dot-net"
