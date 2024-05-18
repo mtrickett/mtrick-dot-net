@@ -27,36 +27,39 @@ export default function Page() {
       <div className="mt-10">
         <p>
           {`Hello! I'm `}
-          <span className="line-through decoration-wavy">
-            <span className="inline font-bold text-neutral-300">[Name]</span>
-          </span>
+          <span className="bg-neutral-100 text-neutral-400">[Name]</span>
           {`, `}
-          <span className="line-through decoration-wavy">
-            <span className="inline font-bold text-neutral-300">
-              [Position/Role]
-            </span>
+          <span className="bg-neutral-100 text-neutral-400">
+            [Position/Role]
           </span>
           {` at `}
-          <span className="line-through decoration-wavy">
-            <span className="inline font-bold text-neutral-300">
-              [Company/Project]
-            </span>
+          <span className="bg-neutral-100 text-neutral-400">
+            [Company/Project]
           </span>
           {`. I've always been passionate about `}
-          <span className="line-through decoration-wavy">
-            <span className="inline font-bold text-neutral-300">
-              [Area of Expertise/Interest]
-            </span>
+          <span className="bg-neutral-100 text-neutral-400">
+            [Area of Expertise/Interest]
           </span>
           {`, and this website is my space to share that passion with you.`}
+          <sup className="text-neutral-600">†</sup>
         </p>
         <p className="mt-4">
           Check out{" "}
           <Link className="text-[#0000ff] underline" href="/blog">
             my stuff
           </Link>
-          .
+          .<sup className="text-neutral-600">††</sup>
         </p>
+        <sub className="text-neutral-400">
+          † Text written by{" "}
+          <a href="https://chatgpt.com/" target="_blank">
+            a computer
+          </a>
+          .
+        </sub>{" "}
+        <sub className="block mt-1 text-neutral-400">
+          †† Text written by <a href="/about">a human</a>.
+        </sub>
       </div>
     </section>
   );

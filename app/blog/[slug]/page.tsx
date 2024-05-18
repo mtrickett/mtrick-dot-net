@@ -102,7 +102,7 @@ export default function Blog({ params }) {
           />
         )}
         {post.metadata.video && (
-          <video width="auto" height="auto" loop autoPlay muted>
+          <video width="auto" height="auto" loop autoPlay muted playsInline>
             <source src={post.metadata.video} type="video/mp4" />
           </video>
         )}
