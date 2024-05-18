@@ -58,7 +58,7 @@ export default function Page() {
           .
         </sub>{" "}
         <sub className="block mt-1 text-neutral-400">
-          <a href="/about">†† Text written by a human.</a>
+          †† Text written by <a href="/about">a human</a>.
         </sub>
       </div>
     </section>
