@@ -6,6 +6,7 @@ export default function Page() {
       <a
         className="block mt-10"
         href="https://commons.wikimedia.org/wiki/File:Rotating_globe.gif"
+        target="_blank"
       >
         <img
           className="m-auto"
