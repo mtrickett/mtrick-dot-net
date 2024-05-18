@@ -49,6 +49,7 @@ export default function Page() {
             </span>
           </span>
           {`, and this website is my space to share that passion with you.`}
+          <sup className="text-neutral-600">†</sup>
         </p>
         <p className="mt-4">
           Check out{" "}
@@ -57,6 +58,13 @@ export default function Page() {
           </Link>
           .
         </p>
+        <sub className="text-neutral-400">
+          † Text written by{" "}
+          <a href="https://chatgpt.com/" target="_blank">
+            ChatGPT
+          </a>
+          .
+        </sub>
       </div>
     </section>
   );
