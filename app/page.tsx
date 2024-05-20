@@ -47,13 +47,21 @@ export default function Page() {
         </p>
         <sub className="text-neutral-400">
           † Text written by{" "}
-          <a href="https://chatgpt.com/" target="_blank">
+          <a
+            href="https://chatgpt.com/"
+            target="_blank"
+            className="hover:underline"
+          >
             a computer
           </a>
           .
         </sub>{" "}
         <sub className="block mt-1 text-neutral-400">
-          †† Text written by <a href="/about">a human</a>.
+          †† Text written by{" "}
+          <a href="/about" className="hover:underline">
+            a human
+          </a>
+          .
         </sub>
       </div>
     </section>
