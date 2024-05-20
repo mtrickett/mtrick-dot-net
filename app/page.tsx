@@ -28,19 +28,13 @@ export default function Page() {
       <div className="mt-10">
         <p>
           {`Hello! I'm `}
-          <span className="bg-neutral-100 text-neutral-400">[Name]</span>
+          <span className="text-neutral-400">[Name]</span>
           {`, `}
-          <span className="bg-neutral-100 text-neutral-400">
-            [Position/Role]
-          </span>
+          <span className="text-neutral-400">[Position/Role]</span>
           {` at `}
-          <span className="bg-neutral-100 text-neutral-400">
-            [Company/Project]
-          </span>
+          <span className="text-neutral-400">[Company/Project]</span>
           {`. I've always been passionate about `}
-          <span className="bg-neutral-100 text-neutral-400">
-            [Area of Expertise/Interest]
-          </span>
+          <span className="text-neutral-400">[Area of Expertise/Interest]</span>
           {`, and this website is my space to share that passion with you.`}
           <sup className="text-neutral-600">†</sup>
         </p>
